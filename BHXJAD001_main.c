@@ -27,7 +27,7 @@ void init_GPIOA(void);
 void init_TIM3 (void);
 
 //Main Function
-int main (void);
+int main (void)
 {
     ResetClockTo48Mhz();
     init_LCD();
