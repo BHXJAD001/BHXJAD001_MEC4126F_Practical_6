@@ -9,59 +9,40 @@ toc::[]
 What type of ADC does the STM32F051x6 have? How does it operate, i.e. how does it convert an integer value from an analog voltage?
 
 [NOTE]
-====
-Place your answer here.
-====
-
+The STM32F051x6 has one 12 bit ADC. It is therefore able to ouput values from 0 to 4095. It converts an analogue voltage to a digital voltage by sampling and holding an input voltage during a conversion. An internal capacitor is used to store voltage. It compares this input signal to a reference voltage for a given sampled value.
 *Maximum Score = 3*
 
 == Question 2: Calibration
 Write down two lines of code that are used to calibrate the ADC?
 
-[,C]
-----
-place your code here
-----
-
+ADC1->CR |= ADC_CR_ADEN; 
+ while((ADC1 -> ISR & ADC_ISR_ADRDY) == 0);
 *Maximum Score = 2*
 
 == Question 3: Memory
 What is the endianness of a word stored in the memory of an STM32F0x1 microcontroller? What does this mean?
 
-[NOTE]
-====
-Place your answer here.
-====
-
+This microcontroller uses little endian format for storing words in its moemory. This means the leas significant byte is sored at the lowest memory address and the most is stored at the highest memory address.
 *Maximum Score = 2*
 
 == Question 4: Priority
 The NVIC has priorities for all the possible interrupts on the SMT32Fx1. Which of the following has the greater priority: `EXTI0_1` or `TIM_2`?
 
-[NOTE]
-====
-Place your answer here.
-====
+EXTIO_1 has greater priority 
 
 *Maximum Score = 1*
 
 == Question 5: Timing
 What is a racing condition and why are they undesirable?
 
-[NOTE]
-====
-Place your answer here.
-====
+A race condition is when two or more processes access shared data and try to modify it at the same time. This is undesireable because it can corrupt data,cause bugs and introduce instability in the system.
 
 *Maximum Score = 2*
 
 == Question 6: Memory Part 2 
 What is DMA and why is it useful?
 
-[NOTE]
-====
-Place your answer here.
-====
+Direct Memory Acess is a hardware feature that allows peripherals to transfer data directly to and from the memory without CPU intervention. This is useful because it reduces load on the CPU and allows for efficient data transfers to take place.
 
 *Maximum Score = 1*
 
